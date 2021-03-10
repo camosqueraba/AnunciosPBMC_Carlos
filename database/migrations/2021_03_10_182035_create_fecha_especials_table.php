@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnunciosTable extends Migration
+class CreateFechaEspecialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAnunciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('anuncios', function (Blueprint $table) {
+        Schema::create('fecha_especials', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('titulo');
-            $table->text('contenido');
-            $table->string('enlace');
-            $table->string('imagen');
+            $table->text('mensaje')->nullable();
+            $table->string('enlace')->nullable();
+            $table->string('imagen')->nullable();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->unsignedInteger('user_id');
@@ -33,6 +33,6 @@ class CreateAnunciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anuncios');
+        Schema::dropIfExists('fecha_especials');
     }
 }

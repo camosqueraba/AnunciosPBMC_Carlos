@@ -22,7 +22,9 @@ class CreateAnunciosTable extends Migration
             $table->string('imagen');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
